@@ -28,18 +28,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form class="b">
           <div class="form-group" id="text">
             <label for="recipient-name" class="col-form-label">Heading</label>
             <input type="text" class="form-control" id="intext">
           </div>
 
+        
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" id="btn2" class="class1">Save</button>
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="btn2" class="class1">Save</button>
-      </div>
     </div>
   </div>
 </div>
@@ -57,21 +58,70 @@
       <div class="modal-body">
         <form class="a">
           
-           <b>Headings:</b> <select name="subject" id="sub_heading" class="subclass" style="width: 500px;">
-              <option value="" selected="selected"   >Select Heading</option>
+            <b>Headings:</b> <select name="subject" id="sub_heading" class="subclass" style="width: 500px;">
+            <option value="" selected="selected"   >Select Heading</option>
             </select>
           
-          <div class="form-group" id="text">
-            <label for="recipient-name" class="col-form-label" >SubHeading</label>
-            <input type="text" style="width: 500px;" class="subtext" id="subtext">
-          </div>
+            <div class="form-group" id="text">
+              <label for="recipient-name" class="col-form-label" >SubHeading</label>
+              <input type="text" style="width: 500px;" class="subtext" id="subtext">
+            </div>
 
+       
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" id="btn4" class="class2">Save</button>
+            </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="btn4" class="class2">Save</button>
+  </div>
+</div>
+
+<div class="modal fade" id="third_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Form:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <form class="c">
+          
+           <b>Headings:</b> <select name="subject" id="sub_heading" class="subclass" style="width: 580px;">
+              <option value="" selected="selected"   >Select Heading</option>
+            </select>
+
+            <p style="padding-top: 20px;"><b>SubHeadings:</b><p><br> <select name="subject" id="sub_heading" class="formclass" style="width: 580px;">
+              <option value="" selected="selected"   >Select SubHeading</option>
+            </select>
+          <p style="padding-top: 20px;"><b>Select input here:</b></p>
+          <div class="form-group" id="text">
+            <label for="recipient-name" class="col-form-label" >Email:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext">
+            <label for="recipient-name" class="col-form-label" >Number:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext">
+            <label for="recipient-name" class="col-form-label" >Text:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext"><label for="recipient-name" class="col-form-label" >Button:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext"><label for="recipient-name" class="col-form-label" >Checkbox:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext"><label for="recipient-name" class="col-form-label" >File:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext"><label for="recipient-name" class="col-form-label" >Radio:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext"><label for="recipient-name" class="col-form-label" >Textarea:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext"><label for="recipient-name" class="col-form-label" >Select:</label>
+            <input type="text" style="width: 580px;" class="formtext" id="subtext">
+          </div>
+
+          
+
+        
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" id="btn4" class="class3">Save</button>
+          </div>
+        </form>
     </div>
   </div>
 </div>
@@ -94,7 +144,7 @@
 	<script src="jss.js">
 	
 	</script>
-  
+
 		
 </body>
 
