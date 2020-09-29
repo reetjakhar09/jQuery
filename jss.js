@@ -44,7 +44,7 @@ $(document).ready(function(){
 	$(".d").submit(function(e){
 		console.log('cssdddddddddddddddddd')
 		e.preventDefault();
-		var label=$(".l").val();
+		var label=$(".la").val();
 		var name=$(".n").text();
 		var placeholder=$(".p").val();
 		var clas=$(".cl").val();
@@ -53,10 +53,11 @@ $(document).ready(function(){
 		var sub = $(".sclass option:selected").val();
 		var abc =$(".form-input option:selected").text();
 		var efg =$(".fclass option:selected").val();
-		var aaa =parseInt(efg)+1;		
+		var aaa =parseInt(efg)+1;
+		var res = option.split(",");		
 		if(abc=='RADIO'){
 			console.log('dbbjkn')
-			var res = option.split(",");
+			
 			console.log(res)
 			$(res).each(function(ky){
 				
@@ -78,15 +79,16 @@ $(document).ready(function(){
 			console.log('btyhty')
 			var x = $('<p><label> '+label+' </label></p>');
 			console.log(x)
-			var y = $('<select class="'+clas+'"></select>').appendTo(x);
+			var y = $('<select class="'+clas+'"><option>select</option></select>').appendTo(x);
 			console.log(y)
-			var z = $("<option value='select'>select</option>");
-			console.log(z)
+			// var z = $("<option value='select'>select</option>");
+			// console.log(z)
 			
 			$(res).each(function(v){
 				console.log('ty')
-				$("<option value='v'> "+res[v]+" </option>").appendTo(y);
+				$(y).append("<option> "+res[v]+" </option>");
 			});
+			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(x);
 
 		}
 		else $("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
