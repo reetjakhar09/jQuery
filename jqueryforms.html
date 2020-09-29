@@ -13,150 +13,138 @@
 	
 </head>
 <body>
+	
+
 	<button type="button" id="btn1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Heading</button>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#second_form" data-whatever="@fat">SubHeading</button>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#third_form" data-whatever="@getbootstrap">Form</button>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#second_form" data-whatever="@fat">SubHeading</button>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#third_form" data-whatever="@getbootstrap">Form</button>
+
+	<main></main>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Heading</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="a">
-          <div class="form-group" id="text">
-            <label for="recipient-name" class="col-form-label">Heading</label>
-            <input type="text" class="form-control" id="intext">
-          </div>
-
-        
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" id="btn2" class="class1">Save</button>
-          </div>
-        </form>
-    </div>
-  </div>
-</div>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New Heading</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="a">
+						<div class="form-group" id="text">
+							<label for="recipient-name" class="col-form-label">Heading</label>
+							<input type="text" class="form-control" id="intext">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" id="btn2" class="class1">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-<div class="modal fade" id="second_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New SubHeading</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="b">
-          
-            <b>Headings:</b> <select name="subject" id="sub_heading" class="subclass" style="width: 500px;">
+	<div class="modal fade" id="second_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New SubHeading</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="b">
+						
+						<b>Headings:</b> 
+						<select name="subject" id="sub_heading" class="subclass" style="width: 500px;">
+							<option value="" selected="selected"   >Select Heading</option>
+						</select>
+						
+						<div class="form-group" id="text">
+							<label for="recipient-name" class="col-form-label" >SubHeading</label>
+							<input type="text" style="width: 500px;" class="subtext" id="subtext">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" id="btn4" class="class2">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-            <option value="" selected="selected"   >Select Heading</option>
-            </select>
-          
-            <div class="form-group" id="text">
-              <label for="recipient-name" class="col-form-label" >SubHeading</label>
-              <input type="text" style="width: 500px;" class="subtext" id="subtext">
-            </div>
+	<div class="modal fade" id="third_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"><b>Form:</b></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="d">
+						
+						<b>Headings:</b> 
+						<select name="subject" id="sub_heading" class="sclass" style="width: 580px;">
+							<option value="" selected="selected"   >Select Heading</option>
+						</select>
 
-       
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" id="btn4" class="class2">Save</button>
-            </div>
-        </form>
-      </div>
-  </div>
-</div>
-
-<div class="modal fade" id="third_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><b>Form:</b></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="d">
-          
-           <b>Headings:</b> <select name="subject" id="sub_heading" class="sclass" style="width: 580px;">
-              <option value="" selected="selected"   >Select Heading</option>
-            </select>
-
-            <p style="padding-top: 10px;"><b>SubHeadings:</b><p><br> <select name="subject" id="sub_heading" class="fclass" style="width: 580px;">
-              <option value="" selected="selected"   >Select SubHeading</option>
-            </select>
-          
-            <p style="padding-top: 5px;"><b>Select Input:</b></p><br><select name="subject"  class="form-input" style="width: 580px;">
-              <option value="" selected="selected"   >Select Input here:</option>
-              <option value=""   >EMAIL</option>
-              <option value=""   >NUMBER</option>
-              <option value=""   >TEXT</option>
-              <option value=""   >BUTTON</option>
-              <option value=""   >CHECKBOX</option>
-              <option value=""   >FILE</option>
-              <option value=""   >RADIO</option>
-              <option value=""   >TEXTAREA</option>
-              <option value=""   >SELECT</option> 
-            </select>
-             
-            
-              <p style="padding-top: 15px;"><b>Inputs:</b></p>
-              <label for="fname">Label-</label>
-              <input type="text" id="fname" name="fname" style="width: 520px;"><br><br>
-              <label for="lname">Name-</label>
-              <input type="text" class="l" name="lname" style="width: 520px;"><br><br>
-              <label for="lname">Placeholder-</label>
-              <input type="text" class="p" name="lname" style="width: 475px;"><br><br>
-              <label for="lname">Class-</label>
-              <input type="text" class="cl" name="lname" style="width: 520px;"><br><br>
-              <label for="lname">Value-</label>
-              <input type="text" class="v" name="lname" style="width: 520px;"><br><br>
-              <label for="lname">Option-</label>
-              <input type="text" class="o" name="lname" style="width: 510px;"><br><br>
-              <input type="checkbox">
-              <label for="vehicle1"> Disable</label><br>
-              <input type="checkbox">
-              <label for="vehicle1"> Readonly</label><br>
-              <input type="checkbox">
-              <label for="vehicle1"> Required</label><br>
-             
-
-
-        
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" id="btn4" class="class3">Save</button>
-          </div>
-        </form>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-<main></main>
-
-
-  
-  
+						<p style="padding-top: 10px;"><b>SubHeadings:</b><p><br> 
+						<select name="subject" id="sub_heading" class="fclass" style="width: 580px;">
+							<option value="" selected="selected"   >Select SubHeading</option>
+						</select>
+					
+						<p style="padding-top: 5px;"><b>Select Input:</b></p><br>
+						<select name="subject"  class="form-input" style="width: 580px;">
+							<option value="" selected="selected"   >Select Input here:</option>
+							<option value=""   >EMAIL</option>
+							<option value=""   >NUMBER</option>
+							<option value=""   >TEXT</option>
+							<option value=""   >BUTTON</option>
+							<option value=""   >CHECKBOX</option>
+							<option value=""   >FILE</option>
+							<option value=""   >RADIO</option>
+							<option value=""   >TEXTAREA</option>
+							<option value=""   >SELECT</option> 
+						</select>
+						 
+						
+						<p style="padding-top: 15px;"><b>Inputs:</b></p>
+						<label for="fname">Label-</label>
+						<input type="text" id="fname" name="fname" style="width: 520px;"><br><br>
+						<label for="lname">Name-</label>
+						<input type="text" class="l" name="lname" style="width: 520px;"><br><br>
+						<label for="lname">Placeholder-</label>
+						<input type="text" class="p" name="lname" style="width: 475px;"><br><br>
+						<label for="lname">Class-</label>
+						<input type="text" class="cl" name="lname" style="width: 520px;"><br><br>
+						<label for="lname">Value-</label>
+						<input type="text" class="v" name="lname" style="width: 520px;"><br><br>
+						<label for="lname">Option-</label>
+						<input type="text" class="o" name="lname" style="width: 510px;"><br><br>
+						<!-- <input type="checkbox" class="dis">
+						<label > Disable</label><br>
+						<input type="checkbox" class="read">
+						<label > Readonly</label><br>
+						<input type="checkbox" class="req" >
+						<label > Required</label><br> -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" id="btn4" class="class3">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
