@@ -76,26 +76,29 @@ $(document).ready(function(){
 			var xt = $('<p><label> '+label+' </label>  <textarea  name="'+name+'"   placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  >'+value+'</textarea>  </p>');			
 			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(xt);
 		}
+		
 		else $("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+		if ($('.dis').is(':checked'))
+		{
+			$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child :input' ).prop( 'disabled', true );
+			
+		}
+		if ($('.read').is(':checked'))
+		{
+			$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child :input' ).prop( 'readonly', true );
+			
+		}
+		if ($('.req').is(':checked'))
+		{
+			$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child :input' ).attr( 'required', true );
+			
+		}
+
 
 		
 
-
-
-		if ($('.dis').is(':checked'))
-		{
-			var mn =$(abc).val();
-			if((abc=='EMAIL')||(abc=='NUMBER')||(abc=='TEXT')||(abc=='BUTTON')||(abc=='CHECKBOX')||(abc=='FILE')||(abc='RADIO'))
-			{	
-				$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child input' ).prop( 'disabled', true );
-			}
-		}
-
-
-		else 
-		{
-			$( "main section:nth-child("+sub+") div:nth-child("+aaa+") p " ).prop( 'disabled', false );
-		}
+		
+		
 		$(".d").trigger("reset");
 	
 
