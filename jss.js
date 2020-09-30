@@ -42,7 +42,6 @@ $(document).ready(function(){
 	});
 
 	$(".d").submit(function(e){
-		console.log('cssdddddddddddddddddd')
 		e.preventDefault();
 		var label=$(".la").val();
 		var name=$(".n").text();
@@ -56,45 +55,31 @@ $(document).ready(function(){
 		var aaa =parseInt(efg)+1;
 		var res = option.split(",");		
 		if(abc=='RADIO'){
-			console.log('dbbjkn')
-			
-			console.log(res)
-			$(res).each(function(ky){
-				
-				console.log('ree')
-				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[ky]+' </label><input type="'+abc+'"  placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+			$(res).each(function(ky){				
+				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[ky]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 			})
 		}
-		else if(abc=='CHECKBOX'){
-			console.log('akd')
-			
-			console.log(stu)
+		else if(abc=='CHECKBOX'){			
 			$(res).each(function(k){
-				console.log('eee')
-				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[k]+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
-
+				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[k]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 			})
 		}
-		else if(abc=='SELECT'){
-			console.log('btyhty')
-			var x = $('<p><label> '+label+' </label></p>');
-			console.log(x)
-			var y = $('<select class="'+clas+'"><option>select</option></select>').appendTo(x);
-			console.log(y)
-			// var z = $("<option value='select'>select</option>");
-			// console.log(z)
-			
+		else if(abc=='SELECT'){			
+			var x = $('<p><label> '+label+' </label></p>');			
+			var y = $('<select class="'+clas+'"><option>select</option></select>').appendTo(x);			
 			$(res).each(function(v){
-				console.log('ty')
 				$(y).append("<option> "+res[v]+" </option>");
 			});
 			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(x);
-
+		}
+		else if(abc=='TEXTAREA'){
+			var xt = $('<p><label> '+label+' </label>  <textarea  name="'+name+'"   placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  >'+value+'</textarea>  </p>');			
+			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(xt);
 		}
 		else $("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 
 	});
-		$(".d").trigger("reset");
+		$("form").trigger("reset");
 
 });
 
