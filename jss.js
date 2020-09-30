@@ -32,7 +32,7 @@ $(document).ready(function(){
 		var sub = $(".sclass option:selected").val();
 		$(".fclass option").remove()
 		$(".fclass").append('<option>select</option>');
-		$("main section:nth-child("+sub+") div  ").each(function(value){
+		$("main section:nth-child("+sub+") div h2 ").each(function(value){
 			value=value+1;
 			var sinput =$(this).text().replace("X","");
 			$(".fclass").append('<option value="'+value+'">'+sinput+'</option>');
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		var placeholder=$(".p").val();
 		var clas=$(".cl").val();
 		var value=$(".v").val();
-		var option=$(".o").val();
+		var option=$(".o").val();		
 		var sub = $(".sclass option:selected").val();
 		var abc =$(".form-input option:selected").text();
 		var efg =$(".fclass option:selected").val();
@@ -78,8 +78,29 @@ $(document).ready(function(){
 		}
 		else $("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 
+		
+
+
+
+		if ($('.dis').is(':checked'))
+		{
+			var mn =$(abc).val();
+			if((abc=='EMAIL')||(abc=='NUMBER')||(abc=='TEXT')||(abc=='BUTTON')||(abc=='CHECKBOX')||(abc=='FILE')||(abc='RADIO'))
+			{	
+				$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child input' ).prop( 'disabled', true );
+			}
+		}
+
+
+		else 
+		{
+			$( "main section:nth-child("+sub+") div:nth-child("+aaa+") p " ).prop( 'disabled', false );
+		}
+		$(".d").trigger("reset");
+	
+
 	});
-		$("form").trigger("reset");
+		
 
 });
 
