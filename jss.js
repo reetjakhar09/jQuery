@@ -1,4 +1,11 @@
 $(document).ready(function(){
+	var arr = [];
+	var data = JSON.parse(localStorage.getItem('arr'));
+	$(data).each(function(ke,vl){
+		console.log(data)
+		console.log(data.title)
+		$("main").append('<section><h1 value='+ke+'>'+vl.title+'<button  onclick=myFunction(this)>X</button>  </h1></section>');
+	});
 	
 	$(".a").submit(function(e){
 		e.preventDefault();
@@ -14,9 +21,12 @@ $(document).ready(function(){
 
 	 	 	$(".subclass ").append('<option value="'+key+'">'+Head_Input+'</option>');
 	 		$(".sclass").append('<option value="'+key+'">'+Head_Input+'</option>');
+	    });
+	    arr.push({'title':HeadingInput ,'subh':[]})
+	    console.log(arr)
+	 	localStorage.setItem('arr', JSON.stringify(arr));
+	    
 
-
-	     });
 	    $("form").trigger("reset");
 	});
 
@@ -25,6 +35,10 @@ $(document).ready(function(){
 		var input = $(".subclass option:selected").val();
 		var Subheadinginput = $(".subtext").val();
 		$("main section:nth-child("+input+")").append('<div><h2>  '+Subheadinginput+' <button onclick=myFunction(this)>X</button> </h2></div>');
+		
+		// arr.subh[].push({'title':Subheadinginput, form:[] })
+		// localStorage.setItem('arr.subh', JSON.stringify(arr));
+
 		$(".b").trigger("reset");
 	});
 
@@ -96,7 +110,7 @@ $(document).ready(function(){
 
 
 		
-
+		arr.subh.form.push({'input':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
 		
 		
 		$(".d").trigger("reset");
