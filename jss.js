@@ -4,8 +4,21 @@ $(document).ready(function(){
 	$(data).each(function(ke,vl){
 		console.log(data)
 		console.log(data.title)
-		$("main").append('<section><h1 value='+ke+'>'+vl.title+'<button  onclick=myFunction(this)>X</button>  </h1></section>');
+		console.log(ke)
+		console.log(vl)
+		$("main").append('<section><h1>'+vl.title+'<button  onclick=myFunction(this)>X</button>  </h1></section>');
+		$(".subclass ").append('<option value="'+(ke+1)+'">'+vl.title+'</option>');
+		$(".sclass").append('<option value="'+ke+'">'+vl.title+'</option>');
+		$(vl.subhe).each(function(keyy,vle){
+			console.log(vl.subhe)
+			console.log(vle)
+			console.log(keyy)
+			$("main section:nth-child("+(ke+1)+")").append('<div><h2>  '+vle.title+' <button onclick=myFunction(this)>X</button> </h2></div>');
+		})
+
 	});
+	
+	
 	
 	$(".a").submit(function(e){
 		e.preventDefault();
@@ -22,7 +35,7 @@ $(document).ready(function(){
 	 	 	$(".subclass ").append('<option value="'+key+'">'+Head_Input+'</option>');
 	 		$(".sclass").append('<option value="'+key+'">'+Head_Input+'</option>');
 	    });
-	    arr.push({'title':HeadingInput ,'subh':[]})
+	    arr.push({'title':HeadingInput,'subhe':[]})
 	    console.log(arr)
 	 	localStorage.setItem('arr', JSON.stringify(arr));
 	    
@@ -33,11 +46,13 @@ $(document).ready(function(){
 	$(".b").submit(function(e){
 		e.preventDefault();
 		var input = $(".subclass option:selected").val();
+		console.log(input)
 		var Subheadinginput = $(".subtext").val();
+		console.log(Subheadinginput)
 		$("main section:nth-child("+input+")").append('<div><h2>  '+Subheadinginput+' <button onclick=myFunction(this)>X</button> </h2></div>');
 		
-		// arr.subh[].push({'title':Subheadinginput, form:[] })
-		// localStorage.setItem('arr.subh', JSON.stringify(arr));
+		arr[input-1].subhe.push({'title':Subheadinginput, 'form':[] })
+		localStorage.setItem('arr', JSON.stringify(arr));
 
 		$(".b").trigger("reset");
 	});
@@ -110,7 +125,7 @@ $(document).ready(function(){
 
 
 		
-		arr.subh.form.push({'input':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+		arr.subhe.form.push({'input':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
 		
 		
 		$(".d").trigger("reset");
