@@ -14,9 +14,9 @@ $(document).ready(function(){
 			
 			$(vle.form).each(function(keey,vlle){
 				console.log(vle.form)
-				console.log(vlle)
+				console.log(vlle.label)
 				console.log(keey)
-				$("main section:nth-child("+(ke+1)+") div:nth-child("+(keyy+1)+")").append('<p><label> '+vlle.label+' </label><input type="'+vlle.abc+'" name="'+vlle.name+'" placeholder="'+vlle.placeholder+'"   class="'+vlle.clas+'" value="'+vlle.value+'" option="'+vlle.option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+			$("main section:nth-child("+(ke+1)+") div:nth-child("+(keyy+2)+")").append('<p><label> '+vlle.label+' </label><input type="'+vlle.input+'" name="'+vlle.name+'" placeholder="'+vlle.placeholder+'"   class="'+vlle.clas+'" value="'+vlle.value+'" option="'+vlle.option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 			})
 
 
@@ -80,25 +80,32 @@ $(document).ready(function(){
 		var placeholder=$(".p").val();
 		var clas=$(".cl").val();
 		var value=$(".v").val();
-		var option=$(".o").val();		
-		var sub = $(".sclass option:selected").val();
+		var option=$(".o").val();
+		var thrdform=$(".input_typee").val();
+
+		var subv = $(".sclass option:selected").val();
 		var abc =$(".form-input option:selected").text();
+		console.log(subv)
+		console.log(thrdform)
 		var efg =$(".fclass option:selected").val();
+		console.log(efg)
 		var aaa =parseInt(efg)+1;
 		var res = option.split(",");		
 		if(abc=='RADIO'){
 			$(res).each(function(ky){				
-				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[ky]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+				$("main section:nth-child("+subv+") div:nth-child("+aaa+")").append('<p><label> '+res[ky]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+				arr[subv-1].subhe[efg-1].form.push({'input':"radio",'label':res[ky],'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
 			})
-			arr[sub-1].subhe[efg-1].form.push({'input':"RADIO",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 
 		else if(abc=='CHECKBOX'){			
 			$(res).each(function(k){
-				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[k]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+				$("main section:nth-child("+subv+") div:nth-child("+aaa+")").append('<p><label> '+res[k]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+				arr[subv-1].subhe[efg-1].form.push({'input':"checkbox",'label':res[k],'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
 			})
-			arr[sub-1].subhe[efg-1].form.push({'input':"checkbox",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		else if(abc=='SELECT'){			
@@ -107,31 +114,37 @@ $(document).ready(function(){
 			$(res).each(function(v){
 				$(y).append("<option> "+res[v]+" </option>");
 			});
-			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(x);
-			arr[sub-1].subhe[efg-1].form.push({'input':"SELECT",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			$("main section:nth-child("+subv+") div:nth-child("+aaa+")").append(x);
+			arr[subv-1].subhe[efg-1].form.push({'input':"select",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		else if(abc=='TEXTAREA'){
 			var xt = $('<p><label> '+label+' </label>  <textarea  name="'+name+'"   placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  >'+value+'</textarea>  </p>');			
-			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(xt);
-			arr[sub-1].subhe[efg-1].form.push({'input':"TEXTAREA",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			$("main section:nth-child("+subv+") div:nth-child("+aaa+")").append(xt);
+			arr[subv-1].subhe[efg-1].form.push({'input':abc,'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		
-		else $("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+		else {
+			console.log(arr[subv-1])
+			$("main section:nth-child("+subv+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+			arr[subv-1].subhe[efg-1].form.push({'input':abc,'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			localStorage.setItem('arr', JSON.stringify(arr));
+		}
+		
 		if ($('.dis').is(':checked'))
 		{
-			$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child :input' ).prop( 'disabled', true );
+			$( 'main section:nth-child('+subv+') div:nth-child('+aaa+') p:last-child :input' ).prop( 'disabled', true );
 			
 		}
 		if ($('.read').is(':checked'))
 		{
-			$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child :input' ).prop( 'readonly', true );
+			$( 'main section:nth-child('+subv+') div:nth-child('+aaa+') p:last-child :input' ).prop( 'readonly', true );
 			
 		}
 		if ($('.req').is(':checked'))
 		{
-			$( 'main section:nth-child('+sub+') div:nth-child('+aaa+') p:last-child :input' ).attr( 'required', true );
+			$( 'main section:nth-child('+subv+') div:nth-child('+aaa+') p:last-child :input' ).attr( 'required', true );
 			
 		}
 
