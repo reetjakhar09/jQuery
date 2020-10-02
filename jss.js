@@ -2,23 +2,28 @@ $(document).ready(function(){
 	var arr = [];
 	var data = JSON.parse(localStorage.getItem('arr'));
 	$(data).each(function(ke,vl){
-		console.log(data)
-		console.log(data.title)
-		console.log(ke)
-		console.log(vl)
 		$("main").append('<section><h1>'+vl.title+'<button  onclick=myFunction(this)>X</button>  </h1></section>');
 		$(".subclass ").append('<option value="'+(ke+1)+'">'+vl.title+'</option>');
-		$(".sclass").append('<option value="'+ke+'">'+vl.title+'</option>');
+		$(".sclass").append('<option value="'+(ke+1)+'">'+vl.title+'</option>');
+
 		$(vl.subhe).each(function(keyy,vle){
 			console.log(vl.subhe)
 			console.log(vle)
 			console.log(keyy)
 			$("main section:nth-child("+(ke+1)+")").append('<div><h2>  '+vle.title+' <button onclick=myFunction(this)>X</button> </h2></div>');
+			
+			$(vle.form).each(function(keey,vlle){
+				console.log(vle.form)
+				console.log(vlle)
+				console.log(keey)
+				$("main section:nth-child("+(ke+1)+") div:nth-child("+(keyy+1)+")").append('<p><label> '+vlle.label+' </label><input type="'+vlle.abc+'" name="'+vlle.name+'" placeholder="'+vlle.placeholder+'"   class="'+vlle.clas+'" value="'+vlle.value+'" option="'+vlle.option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
+			})
+
+
 		})
 
 	});
-	
-	
+		
 	
 	$(".a").submit(function(e){
 		e.preventDefault();
@@ -36,9 +41,7 @@ $(document).ready(function(){
 	 		$(".sclass").append('<option value="'+key+'">'+Head_Input+'</option>');
 	    });
 	    arr.push({'title':HeadingInput,'subhe':[]})
-	    console.log(arr)
-	 	localStorage.setItem('arr', JSON.stringify(arr));
-	    
+	 	localStorage.setItem('arr', JSON.stringify(arr));	    
 
 	    $("form").trigger("reset");
 	});
@@ -48,7 +51,6 @@ $(document).ready(function(){
 		var input = $(".subclass option:selected").val();
 		console.log(input)
 		var Subheadinginput = $(".subtext").val();
-		console.log(Subheadinginput)
 		$("main section:nth-child("+input+")").append('<div><h2>  '+Subheadinginput+' <button onclick=myFunction(this)>X</button> </h2></div>');
 		
 		arr[input-1].subhe.push({'title':Subheadinginput, 'form':[] })
@@ -59,6 +61,7 @@ $(document).ready(function(){
 
 	$(".sclass").change(function(){
 		var sub = $(".sclass option:selected").val();
+		console.log(sub)
 		$(".fclass option").remove()
 		$(".fclass").append('<option>select</option>');
 		$("main section:nth-child("+sub+") div h2 ").each(function(value){
@@ -87,11 +90,16 @@ $(document).ready(function(){
 			$(res).each(function(ky){				
 				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[ky]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 			})
+			arr[sub-1].subhe[efg-1].form.push({'input':"RADIO",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			localStorage.setItem('arr', JSON.stringify(arr));
 		}
+
 		else if(abc=='CHECKBOX'){			
 			$(res).each(function(k){
 				$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+res[k]+'  </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 			})
+			arr[sub-1].subhe[efg-1].form.push({'input':"checkbox",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		else if(abc=='SELECT'){			
 			var x = $('<p><label> '+label+' </label></p>');			
@@ -100,10 +108,14 @@ $(document).ready(function(){
 				$(y).append("<option> "+res[v]+" </option>");
 			});
 			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(x);
+			arr[sub-1].subhe[efg-1].form.push({'input':"SELECT",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		else if(abc=='TEXTAREA'){
 			var xt = $('<p><label> '+label+' </label>  <textarea  name="'+name+'"   placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  >'+value+'</textarea>  </p>');			
 			$("main section:nth-child("+sub+") div:nth-child("+aaa+")").append(xt);
+			arr[sub-1].subhe[efg-1].form.push({'input':"TEXTAREA",'label':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
+			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		
 		else $("main section:nth-child("+sub+") div:nth-child("+aaa+")").append('<p><label> '+label+' </label><input type="'+abc+'" name="'+name+'" placeholder="'+placeholder+'"   class="'+clas+'" value="'+value+'" option="'+option+'"  </input> <button  onclick=myFunction(this)>X</button> </p>');
@@ -125,8 +137,7 @@ $(document).ready(function(){
 
 
 		
-		arr.subhe.form.push({'input':label,'name':name,'placeholder':placeholder,'clas':clas,'value':value,'option':option})
-		
+		localStorage.setItem('arr', JSON.stringify(arr));
 		
 		$(".d").trigger("reset");
 	
