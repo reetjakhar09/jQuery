@@ -162,4 +162,3 @@ $(document).ready(function () {
 function myFunction(t) {
 	$(t).parent().remove();
 };
-
