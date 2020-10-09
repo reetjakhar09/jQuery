@@ -5,9 +5,7 @@ $(document).ready(function () {
 		$("main").append('<section><h1>' + vl.title + '<button  onclick=myFunction(this)>X</button>  </h1></section>');
 		$(".subclass ").append('<option value="' + (ke + 1) + '">' + vl.title + '</option>');
 		$(".sclass").append('<option value="' + (ke + 1) + '">' + vl.title + '</option>');
-		var abc = $(".form-input option:selected").val();
-		console.log(abc)
-
+		
 		$(vl.subhe).each(function (keyy, vle) {
 
 			$("main section:nth-child(" + (ke + 1) + ")").append('<div><h2>  ' + vle.title + ' <button onclick=myFunction(this)>X</button> </h2></div>');
@@ -19,22 +17,24 @@ $(document).ready(function () {
 					console.log('reet')
 					var xa = $('<p><label> ' + vlle.label + ' </label></p>');
 					console.log(xa)
-					var ya = $('<select class="' + vlle.clas + '">' + vlle.option.split(',').map((opt) => { return `<option>${opt}</option>`; }) + '</select>').appendTo(xa);
+					var ya = $('<select class="' + vlle.clas + '"> <option>select</option> </select>').appendTo(xa);
 					console.log(ya)
 					$("main section:nth-child(" + (ke + 1) + ") div:nth-child(" + (keyy + 2) + ")").append(xa);
 					return;
 				}
 
-				// if (vlle.input == 'TEXTAREA'){
-				// 	console.log('choudhary')
-				// 	var at = $('<p><label> ' + vlle.label + ' </label>  <textarea  name="' + vlle.name + '"   placeholder="' + vlle.placeholder + '"   class="' + vlle.clas + '" value="' + vlle.value + '" option="' + vlle.option + '"  >' + vlle.value + '</textarea>  </p>');
-				// 	console.log(at)
-				// 	$("main section:nth-child(" + (ke+1) + ") div:nth-child(" + (ke+2) + ")").append(at);
-				// }
+				if (vlle.input == 'TEXTAREA'){
+					console.log('choudhary')
+					var at = $('<p><label> ' + vlle.label + ' </label>  <textarea  name="' + vlle.name + '"   placeholder="' + vlle.placeholder + '"   class="' + vlle.clas + '" value="' + vlle.value + '" option="' + vlle.option + '"  >' + vlle.value + '</textarea>  <button onclick=myFunction(this)>X</button> </p>');
+					console.log(at)
+					$("main section:nth-child(" + (ke+1) + ") div:nth-child(" + (ke+2) + ")").append(at);
+				}
 
 				$("main section:nth-child(" + (ke + 1) + ") div:nth-child(" + (keyy + 2) + ")").append('<p><label> ' + vlle.label + ' </label><input type="' + vlle.input + '" name="' + vlle.name + '" placeholder="' + vlle.placeholder + '"   class="' + vlle.clas + '" value="' + vlle.value + '" option="' + vlle.option + '"  </input> <button  onclick=myFunction(this)>X</button> </p>');
 
 			})
+
+
 		})
 
 	});
