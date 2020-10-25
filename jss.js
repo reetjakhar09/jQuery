@@ -27,8 +27,9 @@ $(document).ready(function () {
 					$("main section:nth-child(" + (ke+1) + ") div:nth-child(" + (keey+2) + ")").append(at);
 				} 
 				else {
-
-					$("main section:nth-child(" + (ke + 1) + ") div:nth-child(" + (keyy + 2) + ")").append('<p><label> ' + vlle.label + ' </label><input type="' + vlle.input + '" name="' + vlle.name + ' " placeholder="' + vlle.placeholder + '"   class="' + vlle.clas + '" value="' + vlle.value + '" option="' + vlle.option + '" disabled="'+ vlle.dis+'" readonly="'+vlle.read+'" required="'+vlle.req+'">  </input> <button  onclick=myFunction(this)>X</button> </p>');
+					var element = `<p><label>  ${vlle.label}  </label><input type="${vlle.input}" name="${vlle.name}" placeholder="${vlle.placeholder}"   class="${vlle.clas}" value="${vlle.value}" option="${vlle.option}" ${vlle.dis ? 'disabled' : ''} ${vlle.read ? 'readonly' : ''} ${vlle.req ? 'required' : ''} >  </input> <button  onclick=myFunction(this)>X</button> </p>`
+					// $("main section:nth-child(" + (ke + 1) + ") div:nth-child(" + (keyy + 2) + ")").append('<p><label> ' + vlle.label + ' </label><input type="' + vlle.input + '" name="' + vlle.name + ' " placeholder="' + vlle.placeholder + '"   class="' + vlle.clas + '" value="' + vlle.value + '" option="' + vlle.option + '" disabled="'+ vlle.dis+'" readonly="'+vlle.read+'" required="'+vlle.req+'">  </input> <button  onclick=myFunction(this)>X</button> </p>');
+					$("main section:nth-child(" + (ke + 1) + ") div:nth-child(" + (keyy + 2) + ")").append(element);
 				}
 
 
@@ -127,7 +128,7 @@ $(document).ready(function () {
 
 		if (abc == 'RADIO') {
 			$(res).each(function (ky) {
-				$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append('<p><label> ' + res[ky] + '  </label><input type="' + abc + '" name="' + name + '" placeholder="' + placeholder + '"   class="' + clas + '" value="' + value + '" disabled="'+ dis+'" required="'+req+'" readonly="'+read+'"</input> <button  onclick=myFunction(this)>X</button> </p>');
+				$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append(`<p><label> ${res[ky]}  </label><input type="${abc}" name="${name}" placeholder="${placeholder}"   class="${clas}" value="${value}" ${dis ? 'disabled' : ''} ${req ? 'required' : ''} ${read ? 'readonly' : ''} ></input> <button  onclick=myFunction(this)>X</button> </p>`);
 				arr[subv - 1].subhe[efg - 1].form.push({ 'dis': dis, 'read': read, 'req': req, 'input': "radio", 'label': res[ky], 'name': name, 'placeholder': placeholder, 'clas': clas, 'value': value, 'option': option })
 			})
 
@@ -136,15 +137,15 @@ $(document).ready(function () {
 
 		else if (abc == 'CHECKBOX') {
 			$(res).each(function (k) {
-				$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append('<p><label> ' + res[k] + '  </label><input type="' + abc + '" name="' + name + '" placeholder="' + placeholder + '"   class="' + clas + '" value="' + value + '" option="' + option + '" disabled="'+ dis+'" required="'+req+'" readonly="'+read+'" </input> <button  onclick=myFunction(this)>X</button> </p>');
+				$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append(`<p><label>  ${res[k]} </label><input type="${abc}" name="${name}" placeholder="${placeholder}"   class="${clas}" value="${value}" option="${option}" ${dis ? 'disabled' : ''} ${req ? 'required' : ''} ${read ? 'readonly' : ''} </input> <button  onclick=myFunction(this)>X</button> </p>`);
 				arr[subv - 1].subhe[efg - 1].form.push({ 'dis': dis, 'read': read, 'req': req, 'input': "checkbox", 'label': res[k], 'name': name, 'placeholder': placeholder, 'clas': clas, 'value': value, 'option': option })
 			})
 
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		else if (abc == 'SELECT') {
-			var x = $('<p><label> ' + label + ' </label></p>');
-			var y = $('<select class="' + clas + '" disabled="'+ dis+'" required="'+req+'" readonly="'+read+'"><option>select</option></select> <button onclick=myFunction(this)>X</button>').appendTo(x);
+			var x = $(`<p><label> ${label} </label></p>`);
+			var y = $(`<select class="${clas}" ${dis ? 'disabled' : ''} ${req ? 'required' : ''} ${read ? 'readonly' : ''}><option>select</option></select> `).appendTo(x);
 			$(res).each(function (v) {
 				$(y).append("<option> " + res[v] + " </option>");
 			});
@@ -153,7 +154,7 @@ $(document).ready(function () {
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 		else if (abc == 'TEXTAREA') {
-			var xt = $('<p><label> ' + label + ' </label>  <textarea  name="' + name + '"   placeholder="' + placeholder + '"   class="' + clas + '" value="' + value + '" option="' + option + '" disabled="'+ dis+'" required="'+req+'" readonly="'+read+'" >' + value + '</textarea> <button onclick=myFunction(this)>X</button> </p>');
+			var xt = $(`<p><label> ${label} </label>  <textarea  name="${name}"   placeholder=" ${placeholder} "   class="${clas}" value="${value}" option="${option}" ${dis ? 'disabled' : ''} ${req ? 'required' : ''} ${read ? 'readonly' : ''} > ${value} </textarea> <button onclick=myFunction(this)>X</button> </p>`);
 			$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append(xt);
 			arr[subv - 1].subhe[efg - 1].form.push({'dis': dis, 'read': read, 'req': req, 'input': abc, 'label': label, 'name': name, 'placeholder': placeholder, 'clas': clas, 'value': value, 'option': option })
 			localStorage.setItem('arr', JSON.stringify(arr));
@@ -161,13 +162,12 @@ $(document).ready(function () {
 
 		else {
 
-			$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append('<p><label> ' + label + ' </label><input type="' + abc + '" name="' + name + '" placeholder="' + placeholder + '"   class="' + clas + '" value="' + value + '" option="' + option + '" disabled="'+ dis+'" required="'+req+'" readonly="'+read+'" </input> <button  onclick=myFunction(this)>X</button> </p>');
+			$("main section:nth-child(" + subv + ") div:nth-child(" + aaa + ")").append(`<p><label> ${label} </label><input type= "${abc} " name= "${name}" placeholder="${placeholder}"   class="${clas}" value="${value}" option="${option}" ${dis ? 'disabled' : ''} ${req ? 'required' : ''} ${read ? 'readonly' : ''} > </input> <button  onclick=myFunction(this)>X</button> </p>`);
 			arr[subv - 1].subhe[efg - 1].form.push({'dis': dis, 'read': read, 'req': req, 'input': abc, 'label': label, 'name': name, 'placeholder': placeholder, 'clas': clas, 'value': value, 'option': option })
 			localStorage.setItem('arr', JSON.stringify(arr));
 		}
 
-		
-
+	
 
 
 		localStorage.setItem('arr', JSON.stringify(arr));
@@ -203,4 +203,3 @@ function removeSub(t) {
 	$(t).parent().remove();
 	window.location.reload();
 }
-
