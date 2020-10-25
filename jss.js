@@ -15,15 +15,15 @@ $(document).ready(function () {
 				console.log(vlle);
 
 				if (vlle.input == 'SELECT') {
-					var xa = $('<p><label> ' + vlle.label + ' </label></p>');
+					var xa = $(`<p><label> ${vlle.label} </label></p>`);
 					console.log(xa)
-					var ya = $('<select class="' + vlle.clas + '"disabled="'+ vlle.dis+'" required="'+vlle.req+'" readonly="'+vlle.read+'"> <option>select</option> ' + vlle.option.split(',').map((opt) => { return `<option>${opt}</option>`; }) + '</select> <button onclick=myFunction(this)>X</button>').appendTo(xa);
+					var ya = $(`<select class="${vlle.clas}" ${vlle.dis ? 'disabled' : ''} ${vlle.read ? 'readonly' : ''} ${vlle.req ? 'required' : ''}> <option>select</option> ${vlle.option.split(',').map((opt) => { return `<option>${opt}</option>`; })}</select> <button onclick=myFunction(this)>X</button>`).appendTo(xa);
 					console.log(ya)
 					$("main section:nth-child(" + (ke + 1) + ") div:nth-child(" + (keyy + 2) + ")").append(xa);
 				}
 
 				else if (vlle.input == 'TEXTAREA'){
-					var at = $('<p><label> ' + vlle.label + ' </label>  <textarea  name="' + vlle.name + '"   placeholder="' + vlle.placeholder + '"   class="' + vlle.clas + '" value="' + vlle.value + '" option="' + vlle.option + '" disabled="'+ vlle.dis+'" required="'+vlle.req+'" readonly="'+vlle.read+'" >' + vlle.value + '</textarea>  <button onclick=myFunction(this)>X</button> </p>');
+					var at = $(`<p><label> ${vlle.label}</label>  <textarea  name="${vlle.name}"   placeholder="${vlle.placeholder}"   class="${vlle.clas}" value="${vlle.value}" option="${vlle.option}" ${vlle.dis ? 'disabled' : ''} ${vlle.read ? 'readonly' : ''} ${vlle.req ? 'required' : ''} > ${vlle.value} </textarea>  <button onclick=myFunction(this)>X</button> </p>`);
 					$("main section:nth-child(" + (ke+1) + ") div:nth-child(" + (keey+2) + ")").append(at);
 				} 
 				else {
